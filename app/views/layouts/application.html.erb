@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Seek2</title>
+    <title>Seek</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,44 +14,22 @@
        <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
      <% end %>
 
-     <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
-       <div class="container">
-         <%= link_to root_path do %>
-           <span><%= image_tag "icons/logo.png", class: "navbar-brand" %></span>
-         <% end %>
-         <ul class="nav navbar-nav navbar-right">
-           <% if logged_in? %>
-             <li>
-               <%= link_to "#" do %>
-                 <%= image_tag "icons/heart.png" %>
-               <% end %>
-             </li>
-             <li>
-               <%= link_to new_topic_path do %>
-                 <%= image_tag 'icons/camera.png' %>
-               <% end %>
-             </li>
-             <li>
-               <%= link_to logout_path, method: :delete do %>
-                 <%= image_tag "icons/logout.png" %>
-               <% end %>
-             </li>
-           <% else %>
-             <li>
-               <%= link_to new_user_path do %>
-                 <%= image_tag "icons/register.png" %>
-               <% end %>
-             </li>
-             <li>
-               <%= link_to login_path do %>
-                 <%= image_tag "icons/login.png" %>
-               <% end %>
-             </li>
-           <% end %>
-         </ul>
-       </div>
-     </nav>
-
+     <header>
+      <div class="container">
+        <div class="header-title-area">
+          <h1 class="logo">Seek(シーク):尋ね人・人探し</h1>
+          <ul class="header-navigation">
+            <li><a href="/">ホーム</a></li>
+            <li><a href="/topics/new">依頼申込</a></li>
+            <li><a href="/topics">依頼一覧</a></li>
+            <li><a href="#">サービス案内</a></li>
+            <li><a href="#">特商法表記</a></li>
+            <li><a href="#">お問い合わせ</a></li>          
+          </ul>
+        </div>
+      </div>
+    </header>
+    <% zaiko = 2 %>
     <%= yield %>
     <script>
      $(function(){

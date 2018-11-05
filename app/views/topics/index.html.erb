@@ -1,0 +1,30 @@
+<div class="top-hero-wrapper text-center">
+  <div class="container top-hero-container">
+    <h1 class="text-white">依頼一覧</h1>
+    <h2 class="text-white">みなさんからの情報をおましています。</h2>
+    <div class="row">
+      <% @topics.each do |topic| %>
+        <p><%= topic.title %></p>
+        <p><%= topic.target %></p>
+        <p><%= topic.date_time %></p>
+        <p><%= topic.place_search %></p>
+        <p><%= topic.description %></p>
+        <% if topic.image1.nil? %>
+        <p><%= image_tag topic.image1.url %></p>
+        <% end %>
+        <% if topic.image2.nil? %>
+        <p><%= image_tag topic.image2.url %></p>
+        <% end %>
+          <% if topic.image3.nil? %>
+        <p><%= image_tag topic.image3.url %></p>
+        <% end %>
+        <p><%= topic.price %>円</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<style media="screen">
+  .container img{
+      width: 100%;
+  }
+</style>

@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :logged_in_action?
   def index
     @topics = Topic.all
   end
@@ -20,6 +21,6 @@ class TopicsController < ApplicationController
 
   private
   def topic_params
-    params.require(:topic).permit(:image, :description)
+    params.require(:topic).permit(:title,:target,:date_time,:place_search,:price,:image1,:image2,:image3, :description)
   end
 end
